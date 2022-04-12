@@ -10,7 +10,7 @@ The repo, inlcuding data sets and pretrained models are, has been forked initial
 - python 3.6.9
 - pytorch 1.3.1
 
-Note : SCGC is able to run with no GPU if the GUP timing code is commented out, and then will not require CUDA. 
+Note : SCGC is able to run with no GPU if the GPU timing code is commented out. 
 
 ## Datasets
 
