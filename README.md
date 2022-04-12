@@ -1,4 +1,4 @@
-# Self-Supervised Contrastive Graph Clustering 
+# Self-Supervised Contrastive Graph Clustering & Influence Augmented Contrastive (IAC) loss
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository contains a PyTorch implementation of "SCGC : Self-Supervised Contrastive Graph Clustering".(https://arxiv.org/XXXXXXXXX)
@@ -30,7 +30,7 @@ python train.py --name dblp --iterations 10 --epochs 200 --model SCGC --verbosit
 python train.py --name cite --iterations 10 --epochs 200 --model SCGC --verbosity 0   --alpha 1 --beta 0.1 --order 1 --tau 0.25 --lr 0.0001 
 ```
 
-- To replicate the SCGC*, run the following.
+- To replicate the SCGC*, which uses Augmented Contrastive (IAC) loss and 50% less model parameters, run the following.
 ```
 python train.py --name usps --iterations 10 --epochs 200 --model SCGC_TRIM --verbosity 0   --alpha 4 --beta 0.1 --order 4 --tau 0.25 --lr 0.001 --influence
 python train.py --name hhar --iterations 10 --epochs 200 --model SCGC_TRIM --verbosity 0   --alpha 1 --beta 10  --order 3 --tau 2.25 --lr 0.001 --influence
