@@ -39,6 +39,28 @@ python train.py --name acm  --iterations 10 --epochs 200 --model SCGC_TRIM --ver
 python train.py --name dblp --iterations 10 --epochs 200 --model SCGC_TRIM --verbosity 0   --alpha 1 --beta 0.1 --order 1 --tau 0.25 --lr 0.001 --influence
 python train.py --name cite --iterations 10 --epochs 200 --model SCGC_TRIM --verbosity 0   --alpha 1 --beta 0.1 --order 1 --tau 0.25 --lr 0.0001 --influence
 ```
+The usps output is
+```
+Namespace(alpha=4.0, batch_size=2048, beta=0.1, cuda=True, data_path='/content/drive/MyDrive/001_Clustering/_Dataset_SDCN', epochs=200, influence=True, iterations=1, k=3, lr=0.001, mode='full', model='SCGC_TRIM', n_clusters=10, n_input=256, n_z=10, name='usps', note='-', order=4, seed=42, tau=0.25, verbosity=0)
+---------------PROFILING CODE--------------
+Loaded PAE acc:0.7098  nmi:0.6748  ari:0.5874  f1:0.6968
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  Total GFLOPs  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                       _MODEL_TRAIN_ALL        27.73%       50.714s        99.25%      181.531s      181.531s       0.000us         0.00%       26.670s       26.670s          -4 b      -2.41 Gb           0 b    -367.99 Gb             1            --  
+                                           _MODEL_TRAIN         0.06%     109.462ms         0.23%     421.977ms       2.110ms       0.000us         0.00%        3.386s      16.931ms       2.34 Kb        -800 b     876.65 Mb     -42.76 Gb           200            --  
+                                              _MODEL_KL         0.01%      19.598ms         0.07%     118.949ms     594.745us       0.000us         0.00%      11.177ms      55.885us         800 b      -2.34 Kb      71.00 Mb    -199.50 Kb           200            --  
+                                            _MODEL_DIST         1.03%        1.888s        14.81%       27.096s     135.478ms       0.000us         0.00%       15.566s      77.831ms        -800 b     -64.41 Gb     258.14 Gb    -193.11 Gb           200            --  
+                                     _MODEL_CONTRASTIVE         0.03%      48.284ms         0.08%     149.847ms     749.235us       0.000us         0.00%        4.008s      20.040ms         800 b      -2.34 Kb      64.48 Gb    -128.92 Gb           200            --  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 182.898s
+Self CUDA time total: 50.388s
+Z:acc-nmi-ari-F1-gpu-clock:  0.8489,  0.8489,  0.8489,  0.0000,|, 0.8411,  0.8411,  0.8411,  0.0000,|, 0.7941,  0.7941,  0.7941,  0.0000,|, 0.8152,  0.8152,  0.8152,  0.0000,|,106441.4219, 106441.4219, 106441.4219,  0.0000,|,106.4405, 106.4405, 106.4405,  0.0000,||, Namespace(alpha=4.0, batch_size=2048, beta=0.1, cuda=True, data_path='/content/drive/MyDrive/001_Clustering/_Dataset_SDCN', epochs=200, influence=True, iterations=1, k=3, lr=0.001, mode='full', model='SCGC_TRIM', n_clusters=10, n_input=256, n_z=10, name='usps', note='-', order=4, seed=42, tau=0.25, verbosity=0)
+Namespace(alpha=1.0, batch_size=2048, beta=10.0, cuda=True, data_path='/content/drive/MyDrive/001_Clustering/_Dataset_SDCN', epochs=200, influence=True, iterations=1, k=5, lr=0.001, mode='full', model='SCGC_TRIM', n_clusters=6, n_input=561, n_z=10, name='hhar', note='-', order=3, seed=42, tau=2.25, verbosity=0)
+```
+The line `Z:acc-nmi-ari-F1-gpu-clock` gives the min,max,avg,std of ACC,NMI,ARI,F1,GPU,CPU followed by || and all the args.
+Profiling `_MODEL_XXX` contexts capture logical model functions and training. Please see the code for more information.
+
 
 - To reun the prfiling for AGCN and SGCN we used the following. These use the SDCN and AGCN defaults.
 ```
