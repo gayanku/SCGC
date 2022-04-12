@@ -3,7 +3,7 @@
 
 This repository contains a PyTorch implementation of "SCGC : Self-Supervised Contrastive Graph Clustering".(https://arxiv.org/XXXXXXXXX)
 
-The repo, inlcuding data sets and pretrained models are, has been forked initially from [SDCN](https://github.com/bdy9527/SDCN). We use also use the model code from AGCN [AGCN](https://github.com/ZhihaoPENG-CityU/MM21---AGCN) and portions of contrastive loss code from [Graph-MLP](https://github.com/yanghu819/Graph-MLP). 
+The repo, inlcuding data sets and pretrained models are, has been forked initially from [SDCN](https://github.com/bdy9527/SDCN). We use also use the model code from [AGCN](https://github.com/ZhihaoPENG-CityU/MM21---AGCN) and portions of contrastive loss code from [Graph-MLP](https://github.com/yanghu819/Graph-MLP). 
 
 ## Setup
 - Our code was tested on CUDA 11.3.0, python 3.6.9, pytorch 1.3.1.
