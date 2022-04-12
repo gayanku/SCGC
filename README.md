@@ -5,22 +5,22 @@ This repository contains a PyTorch implementation of "SCGC : Self-Supervised Con
 
 The repo, inlcuding data sets and pretrained models are, has been forked initially from [SDCN](https://github.com/bdy9527/SDCN). We use also use the model code from AGCN [AGCN](https://github.com/ZhihaoPENG-CityU/MM21---AGCN) and portions of contrastive loss code from [Graph-MLP](https://github.com/yanghu819/Graph-MLP). 
 
-## Dependencies
-- CUDA 11.3.0
-- python 3.6.9
-- pytorch 1.3.1
+## Setup
+- Our code was tested on CUDA 11.3.0, python 3.6.9, pytorch 1.3.1.
+- `pip install -q munkres` is needed for the hungarian algorithem, for the evaluation metrics
+- The code also run on Google colab (2022 April) with no modifications, with munkres installed.
 
 Note : SCGC is able to run with no GPU if the GPU timing code is commented out. 
 
 ## Datasets
 
-The dataset contains 2 folders, `data` and `graph`. Please obtain them from the [dataset Google drive links](https://github.com/bdy9527/SDCN/blob/master/README.md). You will need to set `--data_path` to the parent folder containing `data` and `graph`. Please note that the `data` folder contains the pre-trained `.pkl` models as well. We directly use the pre-trained models from SDCN.
+The dataset contains 2 folders, `data` and `graph`. Please obtain them from the [dataset Google drive links](https://github.com/bdy9527/SDCN/blob/master/README.md). You will need to set `--data_path` to the parent folder containing `data` and `graph`. Please note that the `data` folder contains the pre-trained `.pkl` models. We directly use these pre-trained models from SDCN.
 
 
 ## Usage
 - All parameters are defined in train.py with comments and explanations. 
 
-- To run SCGC on on the 6 datasets, for 10 iterations, use the following. This code has GPU time and memory profiling enabled, which can be turned off by commenting relevant code. Our published ACC,NMI,ARI and F1 was run with profiling commented. 
+- To run SCGC on the 6 datasets, for 10 iterations, use the following. This code has GPU time and memory profiling enabled, which can be turned off by commenting relevant code. Our published ACC,NMI,ARI and F1 was run with profiling commented. 
 ```
 python train.py --name usps --iterations 10 --epochs 200 --model SCGC --verbosity 0   --alpha 1 --beta 0.1 --order 4 --tau 0.5 --lr 0.001 
 python train.py --name hhar --iterations 10 --epochs 200 --model SCGC --verbosity 0   --alpha 1 --beta 10  --order 4 --tau 2.25 --lr 0.001 
