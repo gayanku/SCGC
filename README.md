@@ -1,7 +1,7 @@
 # Self-Supervised Contrastive Graph Clustering & Influence Augmented Contrastive (IAC) loss
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository contains a PyTorch implementation of "SCGC : Self-Supervised Contrastive Graph Clustering".(https://arxiv.org/XXXXXXXXX)
+This repository contains a PyTorch implementation of "SCGC : Self-Supervised Contrastive Graph Clustering".(https://arxiv.org/abs/2204.12656)
 
 The repo, inlcuding data sets and pretrained models are, has been forked initially from [SDCN](https://github.com/bdy9527/SDCN). We use also use the model code from [AGCN](https://github.com/ZhihaoPENG-CityU/MM21---AGCN) and portions of contrastive loss code from [Graph-MLP](https://github.com/yanghu819/Graph-MLP). 
 
@@ -84,5 +84,10 @@ Datasets and code is forked from [SDCN](https://github.com/bdy9527/SDCN). We use
 
 ## Citation
 ```
-TODO
+@article{kulatilleke2022scgc,
+  title={SCGC : Self-Supervised Contrastive Graph Clustering}, 
+  author={Kulatilleke, Gayan K and Portmann, Marius and Chandra, Shekhar S},
+  journal={arXiv preprint arXiv:2204.12656},
+  year={2022}
+}
 ```
